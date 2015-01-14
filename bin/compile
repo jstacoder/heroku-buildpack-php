@@ -45,6 +45,8 @@ BP_DIR=$(cd $(dirname $0); cd ..; pwd)
 source $BP_DIR/bin/util/common.sh
 
 # for extensions that need special treatment
+
+source $BP_DIR/bin/phalcon.sh 
 source $BP_DIR/bin/util/newrelic.sh
 source $BP_DIR/bin/util/blackfire.sh
 
