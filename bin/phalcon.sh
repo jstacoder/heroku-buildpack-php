@@ -24,7 +24,7 @@ echo $PATH
 ls -a /app/
 ls -a /app/php
 ls -a /app/bin
-echo 'build dir''
+echo 'build dir'
 ls -a $BUILD_DIR/
 bash ./install
 cd
