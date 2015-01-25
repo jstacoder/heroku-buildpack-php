@@ -6,7 +6,7 @@ echo "-----> Building Phalcon..."
  
 ### Phalcon
 echo "[LOG] Downloading PhalconPHP"
-git clone $dep_url -q
+git clone $dep_url 
 if [ ! -d "$phalcon_dir" ]; then
       echo "[ERROR] Failed to find phalconphp directory $phalcon_dir"
       exit
@@ -18,8 +18,8 @@ cd $phalcon_dir/build
 # make
 # make install
 BUILD_DIR=$1
-ln -s $BUILD_DIR/.heroku /app/.heroku
-export PATH=/app/.heroku/php/bin:$PATH:/app/php/bin
+ln -vs $BUILD_DIR/.heroku /app/.heroku
+export PATH=/app/.heroku/php/bin:/app/php/bin:$PATH
 echo $PATH
 bash ./install
 cd
