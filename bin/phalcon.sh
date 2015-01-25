@@ -14,7 +14,7 @@
 APACHE_VERSION=2.2.27
 PHP_VERSION=5.5.7
 LIBMCRYPT_VERSION=2.5.8
-APR_VERSION=1.5.0
+APR_VERSION=1.5.1
 APR_UTIL_VERSION=1.5.3
 LIBPCRE_VERSION=8.33
 # Disable APC due PHP 5.5 using opcode
@@ -24,8 +24,8 @@ APACHE_URL=https://www.us.apache.org/dist/httpd/httpd-${APACHE_VERSION}.tar.gz
 PHP_URL=http://us.php.net/distributions/php-${PHP_VERSION}.tar.gz
 MCRYPT_URL=http://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmcrypt%2F&ts=1352120606&use_mirror=nchc
 MCRYPT_URL=http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/${LIBMCRYPT_VERSION}/libmcrypt-${LIBMCRYPT_VERSION}.tar.gz
-APR_URL=http://www.us.apache.org/dist/apr/apr-${APR_VERSION}.tar.gz
-APR_UTIL_URL=http://www.us.apache.org/dist/apr/apr-util-${APR_UTIL_VERSION}.tar.gz
+APR_URL=https://www.us.apache.org/dist/apr/apr-${APR_VERSION}.tar.gz
+APR_UTIL_URL=https://www.us.apache.org/dist/apr/apr-util-${APR_UTIL_VERSION}.tar.gz
 PCRE_URL=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${LIBPCRE_VERSION}.tar.gz
 # APC_URL=http://pecl.php.net/get/APC-${APC_VERSION}.tgz
 PHALCON_REPO=git://github.com/phalcon/cphalcon.git
