@@ -45,7 +45,7 @@ PCRE_DIR=pcre-${LIBPCRE_VERSION}
 # APC_DIR=APC-${APC_VERSION}
 PHALCON_DIR=cphalcon
 ## FLAGS
-CURL_FLAGS="--silent --max-time 60 --location -k"
+CURL_FLAGS="--silent --max-time 600 --location -k"
 # Start Build
 mkdir build
 cd build
