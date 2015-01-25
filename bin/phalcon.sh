@@ -21,6 +21,9 @@ BUILD_DIR=$1
 ln -vs $BUILD_DIR/.heroku /app/.heroku
 export PATH=/app/.heroku/php/bin:/app/php/bin:$PATH
 echo $PATH
+ls $BUILD_DIR/.heroku
+ls $BUILD_DIR/.heroku/php
+ls $BUILD_DIR/.heroku/php/bin
 bash ./install
 cd
 echo "important extension phalcon into php.ini"
