@@ -21,9 +21,9 @@ BUILD_DIR=$1
 #ln -vs $BUILD_DIR/.heroku /app/.heroku
 export PATH=/app/.heroku/php/bin:/app/php/bin:$PATH
 echo $PATH
-ls -a /
-
-ls -a /app/bin
+ls -a 
+find / | grep phpize --color
+ls -a /bin
 echo 'build dir'
 ls -a $BUILD_DIR/
 bash ./install
