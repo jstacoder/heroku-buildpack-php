@@ -45,7 +45,7 @@ PCRE_DIR=pcre-${LIBPCRE_VERSION}
 # APC_DIR=APC-${APC_VERSION}
 PHALCON_DIR=cphalcon
 ## FLAGS
-CURL_FLAGS="--silent --max-time 60 --location"
+CURL_FLAGS="--silent --max-time 60 --location -k"
 # Start Build
 mkdir build
 cd build
@@ -53,32 +53,32 @@ echo "[LOG] Staring Build"
 ## Download Necessary Library
 ### APACHE
 echo "[LOG] Downloading apache-$APACHE_VERSION"
-curl $CURL_FLAGS "$APACHE_URL" | tar xvf -
+curl $CURL_FLAGS "$APACHE_URL" | tar xvfz -
 if [ ! -d "$APACHE_DIR" ]; then
 echo "[ERROR] Failed to find apache directory $APACHE_DIR "
 exit
 fi
 echo "[LOG] Downloading apr-$APR_VERSION"
-curl $CURL_FLAGS "$APR_URL" | tar xvf -
+curl $CURL_FLAGS "$APR_URL" | tar xvfz -
 if [ ! -d "$APR_DIR" ]; then
 echo "[ERROR] Failed to find apr directory $APR_DIR"
 exit
 fi
 echo "[LOG] Downloading aph-util-$APR_UTIL_VERSION"
-curl $CURL_FLAGS "$APR_UTIL_URL" | tar xvf -
+curl $CURL_FLAGS "$APR_UTIL_URL" | tar xvfz -
 if [ ! -d "$APR_UTIL_DIR" ]; then
 echo "[ERROR] Failed to find apr-util directory $APR_UTIL_DIR"
 exit
 fi
 echo "[LOG] Downloading pcre-${LIBPCRE_VERSION}"
-curl $CURL_FLAGS "$PCRE_URL" | tar xvf -
+curl $CURL_FLAGS "$PCRE_URL" | tar xvfz -
 if [ ! -d "$PCRE_DIR" ]; then
 echo "[ERROR] Failed to find libpcre directory $PCRE_DIR"
 exit
 fi
 ### PHP
 echo "[LOG] Downloading php-${PHP_VERSION}"
-curl $CURL_FLAGS "$PHP_URL" | tar xvf -
+curl $CURL_FLAGS "$PHP_URL" | tar xvfz -
 if [ ! -d "$PHP_DIR" ]; then
 echo "[ERROR] Failed to find php directory $PHP_DIR"
 exit
