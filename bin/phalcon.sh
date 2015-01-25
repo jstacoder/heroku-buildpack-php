@@ -122,6 +122,7 @@ cd ..
 ## MCRYPT
 echo "[LOG] Building MCrypt"
 cd $MCRYPT_DIR
+aclocal --verbose
 autoconf -W no-obsolete -W no-syntax --verbose
 automake --add-missing
 ./configure --prefix=$MCRYPT_ROOT
