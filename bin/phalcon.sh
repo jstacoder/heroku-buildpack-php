@@ -90,7 +90,7 @@ fi
 # fi
 ### Libmcrypt
 echo "[LOG] Downloading libmcrypt-${LIBMCRYPT_VERSION}"
-curl $CURL_FLAGS "$MCRYPT_URL" | tar xvf -
+curl $CURL_FLAGS "$MCRYPT_URL" | tar xvfz -
 if [ ! -d "$MCRYPT_DIR" ]; then
 echo "[ERROR] Failed to find libmcrypt directory $MCRYPT_DIR"
 exit
