@@ -89,12 +89,12 @@ fi
 # echo "[ERROR] Failed to find apc directory $APC_DIR"
 # fi
 ### Libmcrypt
-echo "[LOG] Downloading libmcrypt-${LIBMCRYPT_VERSION}"
-curl $CURL_FLAGS "$MCRYPT_URL" | tar xvfz -
-if [ ! -d "$MCRYPT_DIR" ]; then
-echo "[ERROR] Failed to find libmcrypt directory $MCRYPT_DIR"
-exit
-fi
+#echo "[LOG] Downloading libmcrypt-${LIBMCRYPT_VERSION}"
+#curl $CURL_FLAGS "$MCRYPT_URL" | tar xvfz -
+#if [ ! -d "$MCRYPT_DIR" ]; then
+#echo "[ERROR] Failed to find libmcrypt directory $MCRYPT_DIR"
+#exit
+#fi
 ### Phalcon
 echo "[LOG] Downloading PhalconPHP"
 git clone $PHALCON_REPO -q
@@ -120,15 +120,15 @@ make
 make install
 cd ..
 ## MCRYPT
-echo "[LOG] Building MCrypt"
-cd $MCRYPT_DIR
-aclocal --verbose
-autoconf -W no-obsolete -W no-syntax --verbose
-automake --add-missing
-./configure --prefix=$MCRYPT_ROOT
-make
-make install
-cd ..
+#echo "[LOG] Building MCrypt"
+#cd $MCRYPT_DIR
+#aclocal --verbose
+#autoconf -W no-obsolete -W no-syntax --verbose
+#automake --add-missing
+#./configure --prefix=$MCRYPT_ROOT
+#make
+#make install
+#cd ..
 ## PHP
 echo "[LOG] Building PHP"
 cd $PHP_DIR
@@ -136,7 +136,8 @@ cd $PHP_DIR
 --with-mysql --with-pdo-mysql --with-pgsql --with-pdo-pgsql \
 --with-iconv --with-gd --with-curl --enable-soap=shared --with-openssl \
 --enable-mbstring --with-curl \
---with-mcrypt=$MCRYPT_ROOT --with-jpeg-dir=/usr
+--with-jpeg-dir=/usr
+#--with-mcrypt=$MCRYPT_ROOT
 make
 make install
 cd ..
