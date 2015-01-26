@@ -52,30 +52,30 @@ cd build
 echo "[LOG] Staring Build"
 ## Download Necessary Library
 ### APACHE
-echo "[LOG] Downloading apache-$APACHE_VERSION"
-curl $CURL_FLAGS "$APACHE_URL" | tar xvfz -
-if [ ! -d "$APACHE_DIR" ]; then
-echo "[ERROR] Failed to find apache directory $APACHE_DIR "
-exit
-fi
-echo "[LOG] Downloading apr-$APR_VERSION"
-curl $CURL_FLAGS "$APR_URL" | tar xvfz -
-if [ ! -d "$APR_DIR" ]; then
-echo "[ERROR] Failed to find apr directory $APR_DIR"
-exit
-fi
-echo "[LOG] Downloading aph-util-$APR_UTIL_VERSION"
-curl $CURL_FLAGS "$APR_UTIL_URL" | tar xvfz -
-if [ ! -d "$APR_UTIL_DIR" ]; then
-echo "[ERROR] Failed to find apr-util directory $APR_UTIL_DIR"
-exit
-fi
-echo "[LOG] Downloading pcre-${LIBPCRE_VERSION}"
-curl $CURL_FLAGS "$PCRE_URL" | tar xvfz -
-if [ ! -d "$PCRE_DIR" ]; then
-echo "[ERROR] Failed to find libpcre directory $PCRE_DIR"
-exit
-fi
+#echo "[LOG] Downloading apache-$APACHE_VERSION"
+#curl $CURL_FLAGS "$APACHE_URL" | tar xvfz -
+#if [ ! -d "$APACHE_DIR" ]; then
+#echo "[ERROR] Failed to find apache directory $APACHE_DIR "
+#exit
+#fi
+#echo "[LOG] Downloading apr-$APR_VERSION"
+#curl $CURL_FLAGS "$APR_URL" | tar xvfz -
+#if [ ! -d "$APR_DIR" ]; then
+#echo "[ERROR] Failed to find apr directory $APR_DIR"
+#exit
+#fi
+#echo "[LOG] Downloading aph-util-$APR_UTIL_VERSION"
+#curl $CURL_FLAGS "$APR_UTIL_URL" | tar xvfz -
+#if [ ! -d "$APR_UTIL_DIR" ]; then
+#echo "[ERROR] Failed to find apr-util directory $APR_UTIL_DIR"
+#exit
+#fi
+#echo "[LOG] Downloading pcre-${LIBPCRE_VERSION}"
+#curl $CURL_FLAGS "$PCRE_URL" | tar xvfz -
+#if [ ! -d "$PCRE_DIR" ]; then
+#echo "[ERROR] Failed to find libpcre directory $PCRE_DIR"
+#exit
+#fi
 ### PHP
 echo "[LOG] Downloading php-${PHP_VERSION}"
 curl $CURL_FLAGS "$PHP_URL" | tar xvfz -
@@ -104,21 +104,21 @@ exit
 fi
 ## Build
 ## PCRE
-echo "[LOG] Building PCRE"
-cd $PCRE_DIR
-./configure --prefix=$PCRE_ROOT
-make
-make install
-cd ..
+#echo "[LOG] Building PCRE"
+#cd $PCRE_DIR
+#./configure --prefix=$PCRE_ROOT
+#make
+#make install
+#cd ..
 ## APACHE
-echo "[LOG] Building Apache"
-mv $APR_DIR $APACHE_DIR/srclib/apr
-mv $APR_UTIL_DIR $APACHE_DIR/srclib/apr-util
-cd $APACHE_DIR
-./configure --prefix=$APACHE_ROOT --with-pcre=$PCRE_ROOT --enable-rewrite
-make
-make install
-cd ..
+#echo "[LOG] Building Apache"
+#mv $APR_DIR $APACHE_DIR/srclib/apr
+#mv $APR_UTIL_DIR $APACHE_DIR/srclib/apr-util
+#cd $APACHE_DIR
+#./configure --prefix=$APACHE_ROOT --with-pcre=$PCRE_ROOT --enable-rewrite
+#make
+#make install
+#cd ..
 ## MCRYPT
 #echo "[LOG] Building MCrypt"
 #cd $MCRYPT_DIR
@@ -132,9 +132,9 @@ cd ..
 ## PHP
 echo "[LOG] Building PHP"
 cd $PHP_DIR
-./configure --prefix=$PHP_ROOT --with-config-file-path=$PHP_ROOT --with-apxs2=$APACHE_ROOT/bin/apxs \
+./configure --prefix=$PHP_ROOT --with-config-file-path=$PHP_ROOT \ #--with-apxs2=$APACHE_ROOT/bin/apxs \
 --with-mysql --with-pdo-mysql --with-pgsql --with-pdo-pgsql \
---with-iconv --with-gd --with-curl --enable-soap=shared --with-openssl \
+--with-iconv --with-gd --with-curl  --with-openssl \
 --enable-mbstring --with-curl \
 --with-jpeg-dir=/usr
 #--with-mcrypt=$MCRYPT_ROOT
@@ -173,9 +173,9 @@ cd /app
 mkdir package
 tar -zcf libs.tar.gz libs
 mv libs.tar.gz package/
-echo "$APACHE_VERSION" > $APACHE_ROOT/VERSION
-tar -zcf apache.tar.gz apache
-mv apache.tar.gz package/
+#echo "$APACHE_VERSION" > $APACHE_ROOT/VERSION
+#tar -zcf apache.tar.gz apache
+#mv apache.tar.gz package/
 echo "$PHP_VERSION" > $PHP_ROOT/VERSION
 tar -zcf php.tar.gz php
 mv php.tar.gz package/
