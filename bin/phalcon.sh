@@ -133,9 +133,9 @@ fi
 echo "[LOG] Building PHP"
 cd $PHP_DIR
 ./configure --prefix=$PHP_ROOT --with-config-file-path=$PHP_ROOT \
---with-mysql --with-pdo-mysql --with-pgsql --with-pdo-pgsql \
---with-iconv --with-gd --with-curl  --with-openssl \
---enable-mbstring --with-curl \
+--with-mysql --with-pdo-mysql \
+--with-iconv --with-curl  --with-openssl \
+--enable-mbstring  \
 --with-jpeg-dir=/usr
 #--with-mcrypt=$MCRYPT_ROOT
 make
