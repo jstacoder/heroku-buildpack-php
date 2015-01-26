@@ -132,7 +132,7 @@ fi
 ## PHP
 echo "[LOG] Building PHP"
 cd $PHP_DIR
-./configure --prefix=$PHP_ROOT --with-config-file-path=$PHP_ROOT \ #--with-apxs2=$APACHE_ROOT/bin/apxs \
+./configure --prefix=$PHP_ROOT --with-config-file-path=$PHP_ROOT \
 --with-mysql --with-pdo-mysql --with-pgsql --with-pdo-pgsql \
 --with-iconv --with-gd --with-curl  --with-openssl \
 --enable-mbstring --with-curl \
