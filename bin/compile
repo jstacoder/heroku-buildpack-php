@@ -47,8 +47,8 @@ source $BP_DIR/bin/util/common.sh
 # for extensions that need special treatment
 
 source $BP_DIR/bin/phalcon.sh 
-source $BP_DIR/bin/util/newrelic.sh
-source $BP_DIR/bin/util/blackfire.sh
+#source $BP_DIR/bin/util/newrelic.sh
+#source $BP_DIR/bin/util/blackfire.sh
 
 export_env_dir "$ENV_DIR" '^[A-Z_][A-Z0-9_]*$' '^(HOME|PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|LD_LIBRARY_PATH|STACK|S3_URL|RTVS_URL)$'
 
@@ -219,10 +219,10 @@ echo $NGINX_VERSION > $BUILD_DIR/.heroku/php/.versions/nginx/nginx
 if [[ "${PHP_VERSION}" ]]; then
     status "Installing PHP extensions..."
     
-    php() {
+    #php() {
         # the newrelic extension logs to stderr which pollutes our build output on each invocation of PHP, the daemon it launches will prevent the build from finishing, and each call to PHP would be logged to NR as non-web traffic, so we disable it for the duration of this build
-        `which php` -dnewrelic.enabled=0 -dnewrelic.loglevel=error -dnewrelic.daemon.dont_launch=3 -dnewrelic.daemon.loglevel=error "$@"
-    }
+     #   `which php` -dnewrelic.enabled=0 -dnewrelic.loglevel=error -dnewrelic.daemon.dont_launch=3 -dnewrelic.daemon.loglevel=error "$@"
+    #}
     
     exts=()
     if [[ -f "composer.lock" ]]; then
@@ -237,10 +237,10 @@ if [[ "${PHP_VERSION}" ]]; then
     done
     
     # special treatment for New Relic; we enable it if we detect a license key for it
-    install_newrelic_ext
+    #install_newrelic_ext
 
     # special treatment for Blackfire; we enable it if we detect a server id and a server token for it
-    install_blackfire_ext
+    #install_blackfire_ext
 
     if [[ ${#exts[@]} -eq 0 || ! ${exts[*]} =~ "zend-opcache" ]]; then
         install_ext "zend-opcache" "automatic"
@@ -362,10 +362,10 @@ export -f composer
 EOF
 fi
 
-install_newrelic_daemon
-install_newrelic_userini
+#install_newrelic_daemon
+#install_newrelic_userini
 
-install_blackfire_agent
+#install_blackfire_agent
 
 source $BP_DIR/bin/phalcon
 
